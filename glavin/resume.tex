@@ -49,6 +49,14 @@
 \renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
 
 
+\newcommand{\cvitemskill}[1]{%
+  \ifthenelse{\equal{\string true}{\string true}}
+%    {{\textit{\color{awesome}#1}}}
+    {\textit{#1}}
+    {#1}%
+}
+
+
 %-------------------------------------------------------------------------------
 %	PERSONAL INFORMATION
 %	Comment any of the lines below if they are not required
