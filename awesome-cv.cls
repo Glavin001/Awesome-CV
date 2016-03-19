@@ -555,8 +555,10 @@
     \ifempty{#2#3}
       {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
       {\entrytitlestyle{#1} & \entrylocationstyle{#4} \\
-      \entrypositionstyle{#2}, \entrydatestyle{#3} \\}
-    \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}
+      \entrypositionstyle{#2}, \entrydatestyle{#3}}
+    \ifempty{#5} 
+      {} % Empty
+      {\\ \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}}
   \end{tabular*}%
 }
 
