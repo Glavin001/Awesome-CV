@@ -154,6 +154,13 @@
 }
 
 
+% Boolean value to switch showing or hiding skills
+\newbool{acvShowSkills}
+\setbool{acvShowSkills}{true}
+% Boolean value to switch showing or hiding experience description
+\newbool{acvShowExperienceDescription}
+\setbool{acvShowExperienceDescription}{true}
+
 %-------------------------------------------------------------------------------
 %                Configuration for fonts
 %-------------------------------------------------------------------------------
@@ -383,7 +390,8 @@
 
 % Others
 %\newcommand{\acvSectionTopSkip}{3mm}
-\newcommand{\acvSectionTopSkip}{0mm}
+\newcommand{\acvSectionBottomSkip}{0mm}
+\newcommand{\acvSectionTopSkip}{3mm}
 \newcommand{\acvSectionContentTopSkip}{2.5mm}
 
 
@@ -503,6 +511,7 @@
 \newcommand{\cvsection}[1]{%
   \vspace{\acvSectionTopSkip}
   \sectionstyle{#1}
+  \vspace{\acvSectionBottomSkip}
   \phantomsection
   \color{gray}\vhrulefill{0.9pt}
 }
@@ -534,21 +543,8 @@
   \end{center}
 }
 % Define an entry of cv information
-% Usage: \cventry{<position>}{<title>}{<location>}{<date>}{<description>}
-%\newcommand*{\cventry}[5]{%
-%  \vspace{-2.0mm}
-%  \setlength\tabcolsep{0pt}
-%  \setlength{\extrarowheight}{0pt}
-%  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
-%    \ifempty{#2#3}
-%      {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
-%      {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
-%      \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
-%    \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}
-%  \end{tabular*}%
-%}
 \newcommand*{\cventry}[5]{%
-  \vspace{-2.0mm}
+%  \vspace{-2.0mm}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
@@ -556,9 +552,11 @@
       {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
       {\entrytitlestyle{#1} & \entrylocationstyle{#4} \\
       \entrypositionstyle{#2}, \entrydatestyle{#3}}
-    \ifempty{#5} 
-      {} % Empty
-      {\\ \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}}
+    \ifbool{acvShowExperienceDescription}{
+        \ifempty{#5}
+          {} % Empty
+          {\\ \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}}
+      }{}
   \end{tabular*}%
 }
 

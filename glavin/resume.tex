@@ -46,6 +46,10 @@
 % Set false if you don't want to highlight section with awesome color
 \setbool{acvSectionColorHighlight}{false}
 
+% Set false is you want Chronological design resume, instead of Functional design
+\setbool{acvShowSkills}{true}
+\setbool{acvShowExperienceDescription}{false}
+
 % If you would like to change the social information separator from a pipe (|) to something else
 \renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
 
@@ -66,7 +70,7 @@
 \position{Software Developer}
 \address{Apt. 306, 1367 Cole Harbour Road, Dartmouth, Nova Scotia, Canada, B2V 1N5}
 
-\mobile{(+902) 225-7035} 
+\mobile{(902) 225-7035} 
 \email{glavin.wiechert@gmail.com}
 %\homepage{glavin.org}
 \github{https://github.com/Glavin001}
@@ -99,7 +103,7 @@
 %	Each section is imported separately, open each file in turn to modify content
 %-------------------------------------------------------------------------------
 %\input{resume/summary.tex}
-\input{resume/skills.tex}
+\ifbool{acvShowSkills}{\input{resume/skills.tex}}{}
 \input{resume/experience.tex}
 \input{resume/education.tex}
 %\input{resume/extracurricular.tex}
