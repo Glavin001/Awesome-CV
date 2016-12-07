@@ -56,8 +56,8 @@
 
 \newcommand{\cvitemskill}[1]{%
   \ifthenelse{\equal{\string true}{\string true}}
-%    {{\textit{\color{awesome}#1}}}
-    {\textit{#1}}
+    {{\textit{\color{awesome}#1}}}
+%    {\textit{#1}}
     {#1}%
 }
 
@@ -67,14 +67,14 @@
 %	Comment any of the lines below if they are not required
 %-------------------------------------------------------------------------------
 \name{Glavin}{Wiechert}
-\position{Software Engineer}
+%\position{Software Developer}
 \address{Apt. 306, 1367 Cole Harbour Road, Dartmouth, Nova Scotia, Canada, B2V 1N5}
 
 \mobile{(902) 225-7035} 
 \email{glavin.wiechert@gmail.com}
 %\homepage{glavin.org}
-\github{https://github.com/Glavin001}
-\linkedin{https://ca.linkedin.com/in/glavin}
+\github{Glavin001}
+\linkedin{glavin}
 % \stackoverflow{SO-id}{SO-name}
 % \twitter{@twit}
 % \skype{skype-id}
@@ -104,9 +104,10 @@
 %-------------------------------------------------------------------------------
 %\input{resume/summary.tex}
 \ifbool{acvShowSkills}{\input{resume/skills.tex}}{}
-\input{resume/experience.tex}
 \input{resume/education.tex}
+\input{resume/experience.tex}
 %\input{resume/extracurricular.tex}
+\input{resume/projects}
 \input{resume/honors.tex}
 %\input{resume/presentation.tex}
 %\input{resume/writing.tex}
